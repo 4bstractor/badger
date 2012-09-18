@@ -1,4 +1,4 @@
-badger
+Badger
 ======
 
 Bill tracking and payment service for a team of individuals
