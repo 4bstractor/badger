@@ -1,4 +1,11 @@
 Badger::Application.routes.draw do
+  get '/sign_in' => 'sessions#new', :as => 'sign_in'
+  get '/sign_up' => 'users#new', :as => 'sign_up'
+  get '/sign_out' => 'sessions#destroy', :as => 'sign_out'
+
+  match '/sessions' => 'sessions#create', :as => 'sessions'
+  match '/users' => 'users#create', :as => 'users'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
