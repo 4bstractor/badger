@@ -1,4 +1,6 @@
 Badger::Application.routes.draw do
+  resources :entities
+
   get '/sign_in' => 'sessions#new', :as => 'sign_in'
   get '/sign_up' => 'users#new', :as => 'sign_up'
   get '/sign_out' => 'sessions#destroy', :as => 'sign_out'
@@ -55,7 +57,7 @@ Badger::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'entities#index'
 
   # See how all your routes lay out with "rake routes"
 
