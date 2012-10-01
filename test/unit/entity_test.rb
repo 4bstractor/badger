@@ -3,7 +3,7 @@ require 'test_helper'
 class EntityTest < ActiveSupport::TestCase
   # Validations
   test "should not create a entity without a name" do
-    entity = entities(:empty)
+    entity = Entity.new
     assert !entity.save
   end
 

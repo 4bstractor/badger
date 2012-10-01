@@ -4,8 +4,3 @@ one:
   email: test@example.com
   username: TestUser
   password_digest: <%= BCrypt::Password.create("password") %>
-
-empty:
-  email:
-  username:
-  password_digest:
