@@ -1,0 +1,1 @@
+Wirb.start
