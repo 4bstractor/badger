@@ -13,7 +13,7 @@ development:
   encoding: utf8
   database: badger_development
   pool: 5
-  username: manta
+  username: <%= `whoami` %>
   password:
 
 # Warning: The database defined as "test" will be erased and
@@ -24,7 +24,7 @@ test:
   encoding: utf8
   database: badger_test
   pool: 5
-  username: manta
+  username: <%= `whoami` %>
   password:
 
 production:
@@ -32,5 +32,5 @@ production:
   encoding: utf8
   database: badger_production
   pool: 5
-  username: manta
+  username: <%= `whoami` %>
   password:
