@@ -18,8 +18,8 @@ class SessionsControllerTest < ActionController::TestCase
     post :create
 
     assert_nil session[:user_id], "Check the user was not signed in"
-    assert_equal "Invalid Email Or Password", flash[:alert], "Check for failure alert"
-    assert_response :success, "Success as in rendering the new page"
+    assert_equal "Invalid Email Or Password", flash[:notice], "Check for failure notice"
+    assert_redirected_to sign_in_url
   end
 
   test "should get destroy" do
