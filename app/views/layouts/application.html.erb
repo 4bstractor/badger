@@ -7,8 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="container">
+    <div id="header">
+      <div id="title">
+        <h1>Badger</h1>
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash#{name}" %>
+        <% end %>
+      </div>
+      <div id="navigation">
+        <ul>
+          <% if current_user %>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "About", root_path %></li>
+            <li><%= link_to "Feedback", root_path %></li>
+            <li><%= link_to "Currently #{current_user.username}", root_path %></li>
+            <li><%= link_to "Sign Out", sign_out_path %></li>
+          <% else %>
+            <li><%= link_to "Sign In", sign_in_path %></li>
+            <li><%= link_to "Sign Up", sign_up_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div id="footer">
+      <h6>Copyright @ Nobody, 2012</h6>
+    </div>
+  </div>
 </body>
 </html>
