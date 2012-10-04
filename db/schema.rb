@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004193900) do
+ActiveRecord::Schema.define(:version => 20121004211605) do
+
+  create_table "bills", :force => true do |t|
+    t.string   "source"
+    t.integer  "amount"
+    t.boolean  "recurring"
+    t.integer  "recur_period"
+    t.date     "due_date"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "entities", :force => true do |t|
     t.string   "name"

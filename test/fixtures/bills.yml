@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  source: MyString
+  amount: 1
+  recurring: false
+  recur_period: 1
+  due_date: 2012-10-04
+
+two:
+  source: MyString
+  amount: 1
+  recurring: false
+  recur_period: 1
+  due_date: 2012-10-04
