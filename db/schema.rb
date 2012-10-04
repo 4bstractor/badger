@@ -14,13 +14,14 @@
 ActiveRecord::Schema.define(:version => 20121004211605) do
 
   create_table "bills", :force => true do |t|
-    t.string   "source"
-    t.integer  "amount"
-    t.boolean  "recurring"
+    t.integer  "entity_id"
+    t.string   "source",                             :null => false
+    t.integer  "amount_in_cents",                    :null => false
+    t.boolean  "recurring",       :default => false, :null => false
     t.integer  "recur_period"
-    t.date     "due_date"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.date     "due_date",                           :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "entities", :force => true do |t|
