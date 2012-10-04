@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
 
   def create
     # Try to find the user by email first
-    user = User.find_by_email(params[:email])
+    user = User.find_by_email(params[:username_or_email])
     # Try the username if not found by email
     unless user
-      user = User.find_by_username(params[:email])
+      user = User.find_by_username(params[:username_or_email])
     end
 
     if user && user.authenticate(params[:password])
