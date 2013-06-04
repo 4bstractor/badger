@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
 
   belongs_to :entity
+
+  # Scope to find a user by either identifier
+  def self.find_by_identifier(identifier)
+    where("username = ? OR email = ?", identifier, identifier).first
+  end
 end
