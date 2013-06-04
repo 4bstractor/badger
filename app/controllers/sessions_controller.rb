@@ -5,13 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # Try to find the user by email first
-    user = User.find_by_email(params[:identifier])
-    # Try the username if not found by email
-    unless user
-      user = User.find_by_username(params[:identifier])
-    end
-
+    user = User.find_by_identifier(params[:identifier])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_url, :notice => "Logged In!"
