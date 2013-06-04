@@ -1,6 +1,9 @@
 Badger::Application.routes.draw do
+  # Resources
+  resources :bills
   resources :entities
 
+  # Authentication routes
   get '/sign_in' => 'sessions#new', :as => 'sign_in'
   get '/sign_up' => 'users#new', :as => 'sign_up'
   get '/sign_out' => 'sessions#destroy', :as => 'sign_out'

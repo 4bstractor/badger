@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Source:</b>
+  <%= @bill.source %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @bill.amount %>
+</p>
+
+<p>
+  <b>Recurring:</b>
+  <%= @bill.recurring %>
+</p>
+
+<p>
+  <b>Recur period:</b>
+  <%= @bill.recur_period %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%= @bill.due_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>
