@@ -9,4 +9,9 @@ class Bill < ActiveRecord::Base
   def amount
     amount_in_cents / 100 if amount_in_cents
   end
+
+  def amount=(new_amount)
+    # Convert a dollar amount into cents for integer storage
+    write_attribute(:amount_in_cents, new_amount.to_f * 100) if new_amount
+  end
 end
