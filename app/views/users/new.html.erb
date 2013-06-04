@@ -11,23 +11,22 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :username %><br/>
-    <%= f.text_field :username %>
-  </div>
-  OR
-  <div class="field">
+  <div class="field required">
     <%= f.label :email %><br/>
     <%= f.text_field :email %>
   </div>
   <div class="field">
+    <%= f.label :username %><br/>
+    <%= f.text_field :username %>
+  </div>
+  <!-- Add Name and Phone required fields here -->
+  <div class="field required">
     <%= f.label :password %><br/>
     <%= f.password_field :password %>
   </div>
-  <div class="field">
+  <div class="field required">
     <%= f.label :password_confirmation %><br/>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="actions"><%= f.submit %></div>
-  <div class="actions"><%= link_to "Sign In", sign_in_path %></div>
+  <div class="actions"><%= f.submit "Sign Up" %></div>
 <% end %>
