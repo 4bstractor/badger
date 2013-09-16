@@ -6,7 +6,7 @@
     size: arial; } }
 
 body {
-  background: #FFF;
+  background: #000 image-url('squares.jpg') no-repeat right top;
   color: #00fa00;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 10px;
@@ -33,8 +33,7 @@ hr {
 #container {
   margin: 0 auto;
   color: #CCC;
-  width: 100%;
-  background: #FFF; }
+  width: 60%; }
 
 #header {
   background: #252525;
@@ -121,3 +120,31 @@ a:active {
   box-shadow: 4px 4px 2px #3b3b3b;
   padding: 20px;
   height: 1%; }
+
+#flashnotice {
+  color: green; }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#errpr_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff; }
+  ul li {
+    font-size: 12px;
+    list-style: square; } }
