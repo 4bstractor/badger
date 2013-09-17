@@ -1,8 +1,6 @@
 class EntitiesController < ApplicationController
-  # GET /entities
-  # GET /entities.json
   def index
-    @entities = Entity.all
+    @entities = current_user.entities
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +12,7 @@ class EntitiesController < ApplicationController
   # GET /entities/1.json
   def show
     @entity = Entity.find(params[:id])
+    current_user.entities.push(@entity)
 
     respond_to do |format|
       format.html # show.html.erb
