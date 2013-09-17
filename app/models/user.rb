@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   def create_personal_entity
     # Overwrites any existing entities just to make sure
-    personal_entity = Entity.create!(:name => "#{self.id}")
+    personal_entity = Entity.create!(:name => "Personal")
     self.entities = [personal_entity]
   end
 end
