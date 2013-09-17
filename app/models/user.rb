@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
 
   has_and_belongs_to_many :entities
+  has_many :bills
 
   after_create :create_personal_entity
 
