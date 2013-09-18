@@ -1,0 +1,46 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :entity %><br />
+    <%= f.select :entity_id, current_user.entities.uniq.collect{|x| [x.name, x.id]}, {:include_blank => false} %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.number_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :recur_period %><br />
+    <%= f.select :recur_period, Bill::RECUR_OPTIONS, {:include_blank => false} %>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %><br />
+    <%= f.text_field :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :exemptions %><br />
+    <%= f.text_field :exemptions %>
+  </div>
+  <div class="field" id="selected_entity_users">
+    <% if @bill.entity %>
+      <p>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

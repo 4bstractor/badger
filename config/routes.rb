@@ -1,5 +1,6 @@
 Badger::Application.routes.draw do
   resources :entities
+  resources :bills
 
   get '/sign_in' => 'sessions#new', :as => 'sign_in'
   get '/sign_up' => 'users#new', :as => 'sign_up'

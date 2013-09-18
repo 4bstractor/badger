@@ -1,0 +1,11 @@
+<h1>Your Bills</h1>
+
+<% @bills.each do |bill| %>
+<div id="entity_box">
+  <p><%= link_to bill.name, bill %> : <%= bill.info_string %></p>
+</div>
+<% end %>
+
+<div id="entity_box">
+  <%= link_to '+ Add A New Bill', new_bill_path %>
+</div>
