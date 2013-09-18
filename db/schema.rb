@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130916095508) do
+ActiveRecord::Schema.define(:version => 20130918052244) do
 
   create_table "bills", :force => true do |t|
     t.integer  "user_id"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(:version => 20130916095508) do
   create_table "entities_users", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "entity_id"
+  end
+
+  create_table "invites", :force => true do |t|
+    t.integer  "user_id",                       :null => false
+    t.integer  "inviter_id",                    :null => false
+    t.integer  "bill_id",                       :null => false
+    t.boolean  "expired",    :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "users", :force => true do |t|
