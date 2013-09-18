@@ -1,6 +1,6 @@
 class EntitiesController < ApplicationController
   def index
-    @entities = current_user.entities
+    @entities = current_user.entities.uniq
 
     respond_to do |format|
       format.html # index.html.erb
