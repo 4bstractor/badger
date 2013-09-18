@@ -19,9 +19,15 @@ ActiveRecord::Schema.define(:version => 20130916095508) do
     t.string   "name"
     t.decimal  "amount",       :precision => 8, :scale => 2
     t.string   "recur_period"
-    t.string   "due_date"
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
+    t.string   "exemptions"
+    t.datetime "due_date"
+  end
+
+  create_table "bills_users", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "bill_id"
   end
 
   create_table "entities", :force => true do |t|

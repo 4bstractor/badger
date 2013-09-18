@@ -17,4 +17,10 @@ class Entity < ActiveRecord::Base
   def address_string
     " : #{address}" if address
   end
+
+  # Currency methods
+  def total_value
+    # zero prevents upstream errors resulting from integer return
+    (bills.collect(&:adjusted_amount) + [0.0]).sum.signif(2)
+  end
 end
