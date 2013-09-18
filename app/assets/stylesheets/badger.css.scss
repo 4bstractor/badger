@@ -6,7 +6,7 @@
     size: arial; } }
 
 body {
-  background: #000 image-url('squares.jpg') no-repeat right top;
+  background: #000 image-url('squares.jpg') repeat-y left top;
   color: #00fa00;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 10px;
