@@ -8,8 +8,6 @@ class EntitiesController < ApplicationController
     end
   end
 
-  # GET /entities/1
-  # GET /entities/1.json
   def show
     @entity = Entity.find(params[:id])
     current_user.entities.push(@entity)
@@ -20,8 +18,6 @@ class EntitiesController < ApplicationController
     end
   end
 
-  # GET /entities/new
-  # GET /entities/new.json
   def new
     @entity = Entity.new
 
@@ -31,19 +27,18 @@ class EntitiesController < ApplicationController
     end
   end
 
-  # GET /entities/1/edit
   def edit
     @entity = Entity.find(params[:id])
   end
 
-  # POST /entities
-  # POST /entities.json
   def create
     @entity = Entity.new(params[:entity])
 
     respond_to do |format|
       if @entity.save
-        format.html { redirect_to @entity, notice: 'Entity was successfully created.' }
+        # Add entity to user
+        current_user.entities.push(@entity)
+        format.html { redirect_to entities_path, notice: 'Entity was successfully created.' }
         format.json { render json: @entity, status: :created, location: @entity }
       else
         format.html { render action: "new" }
@@ -52,14 +47,12 @@ class EntitiesController < ApplicationController
     end
   end
 
-  # PUT /entities/1
-  # PUT /entities/1.json
   def update
     @entity = Entity.find(params[:id])
 
     respond_to do |format|
       if @entity.update_attributes(params[:entity])
-        format.html { redirect_to @entity, notice: 'Entity was successfully updated.' }
+        format.html { redirect_to entities_path, notice: 'Entity was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -68,8 +61,6 @@ class EntitiesController < ApplicationController
     end
   end
 
-  # DELETE /entities/1
-  # DELETE /entities/1.json
   def destroy
     @entity = Entity.find(params[:id])
     @entity.destroy
