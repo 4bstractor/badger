@@ -1,5 +1,5 @@
 class Float
   def signif(signs)
-    Float("%.#{signs}g" % self)
+    Float("%.#{signs}f" % self)
   end
 end
