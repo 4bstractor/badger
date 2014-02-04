@@ -1,5 +1,7 @@
 <h1>Your Entities</h1>
 
+<!-- Page needs an overhaul.  Make the boxes only for bill info and have the entity info frame it.  Then divide the entities like a stack of blocks -->
+
 <% @entities.each do |entity| %>
 <div id="entity_box">
   <p><%= link_to entity.name, entity %><%= entity.info_string %></p>
@@ -8,7 +10,8 @@
     <% entity.bills.each do |bill| %>
       <p><%= bill.name %> : <%= bill.info_string %></p>
     <% end %>
-    <p>Total: <%= entity.total_value.to_s %></p>
+    <p>Total: <%= entity.total_value %></p>
+    <!-- TODO: Add new bill link here scoped to this entity -->
   <% end %>
 </div>
 <% end %>
