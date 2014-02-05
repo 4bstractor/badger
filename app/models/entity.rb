@@ -8,6 +8,10 @@ class Entity < ActiveRecord::Base
   def bills_summary
     " : #{bills.count} " + 'Bill'.pluralize(bills.count)
   end
+
+  def formatted_address
+    address ? "@#{address}" : "No Address"
+  end
   
   # Currency methods
   def total_value

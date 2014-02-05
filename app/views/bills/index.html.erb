@@ -2,7 +2,7 @@
 
 <% @bills.each do |bill| %>
 <div id="entity_box">
-  <p><%= link_to bill.name, bill %> : <%= bill.info_string %></p>
+  <%= render bill %>
 </div>
 <% end %>
 

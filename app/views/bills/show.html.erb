@@ -1,14 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @bill.name %>
-</p>
+<%= render @bill %>
 
-<p>
-  <b>Info:</b>
-  <%= @bill.info_string %>
-</p>
-
-<%= link_to 'Edit', edit_bill_path(@bill) %> |
-<%= link_to 'Back', bills_path %>
+<%= link_to 'Edit', edit_bill_path(@bill) %> | <%= link_to 'Back', bills_path %>
