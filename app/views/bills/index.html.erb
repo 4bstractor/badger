@@ -1,7 +1,13 @@
 <h1>Your Bills</h1>
 
+<div>
+  <p><%= current_user.bills_overview %></p>
+</div>
+
+<hr/>
+
 <% @bills.each do |bill| %>
-<div id="entity_box">
+<div>
   <%= render bill %>
 </div>
 <% end %>

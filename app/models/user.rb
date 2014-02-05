@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     entities.collect(&:total_value).sum.signif(2)
   end
 
+  def bills_overview
+    "You have #{bills.count} #{'bill'.pluralize(bills.count)} belonging to #{entities.count} #{'entity'.pluralize(entities.count)}"
+  end
+
   private
 
   def create_personal_entity
