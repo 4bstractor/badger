@@ -5,19 +5,10 @@ class Entity < ActiveRecord::Base
 
   has_many :bills
 
-  #TODO Make this a helper method and move colon formatting there, doesnt belong in the model
-  def info_string
-    "#{bill_string}#{address_string}" 
-  end
-
   def bill_string
     " : #{bills.count} Bill#{"s" unless bills.count == 1}"
   end
   
-  def address_string
-    " : #{address}" if address
-  end
-
   # Currency methods
   def total_value
     # zero prevents upstream errors resulting from integer return
