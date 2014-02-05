@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :entity %><br />
-    <%= f.select :entity_id, current_user.entities.uniq.collect{|x| [x.name, x.id]}, {:include_blank => false} %>
+    <%= f.select :entity_id, current_user.entities.uniq.collect{|x| [x.name, x.id]}, {:include_blank => false, :selected => params[:entity_id]} %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
@@ -36,11 +36,13 @@
     <%= f.label :comment %><br />
     <%= f.text_field :comment %>
   </div>
+  <!-- Notify the user of the other users being added to the bill -->
   <div class="field" id="selected_entity_users">
     <% if @bill.entity %>
-      <!-- Forgot this needs to be the users selector.  Need to roll in the exemptions addition now as well -->
+      <!--  For edit only, not sure this is needed -->
     <% end %>
   </div>
+  <!-- Need to add exemptions input here -->
   <div class="actions">
     <%= f.submit %>
   </div>

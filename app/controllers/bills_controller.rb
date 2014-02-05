@@ -35,8 +35,8 @@ class BillsController < ApplicationController
 
     respond_to do |format|
       if @bill.save
-        # Add the bill to the user
-        current_user.bills.push(@bill)
+        # All of the users on the entity get added to the bill
+        @bill.users = @bill.entity.users
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
         format.json { render json: @bill, status: :created, location: @bill }
       else
