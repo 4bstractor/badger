@@ -4,26 +4,20 @@
 
 <% @entities.each do |entity| %>
 <div id="entity_box">
-  <p><%= link_to entity.name, entity %><%= entity.info_string %></p>
+  <p><%= link_to entity.name, entity %><%= entity.bill_string %><%= link_to ' + Add A New Bill', new_bill_path %></p>
   <% if entity.bills.count > 0 %>
     <hr />
     <% entity.bills.each do |bill| %>
       <p><%= bill.name %> : <%= bill.info_string %></p>
     <% end %>
-    <p>Total: <%= entity.total_value %></p>
-    <!-- TODO: Add new bill link here scoped to this entity -->
+    <p><b>Total: <%= entity.total_value %></b></p>
   <% end %>
 </div>
 <% end %>
 
 <!-- JS should create a new entity_box here and put the form for a new entity in it.  When it submits it should then replace the form with the new data for the entity -->
 
+<!-- Make this box stand out somewhat -->
 <div id="entity_box">
-  <%= link_to '+ Add A New Entity', new_entity_path %>
+  <p>Grand Total: <%= current_user.total_value %><%= link_to ' + Add A New Entity', new_entity_path %></p>
 </div>
-
-<div id="entity_box">
-  <%= link_to '+ Add A New Bill', new_bill_path %>
-</div>
-
-<p>Grand Total: <%= current_user.total_value %></p>

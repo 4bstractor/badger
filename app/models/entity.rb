@@ -5,7 +5,7 @@ class Entity < ActiveRecord::Base
 
   has_many :bills
 
-  # Maybe this should be a helper method
+  #TODO Make this a helper method and move colon formatting there, doesnt belong in the model
   def info_string
     "#{bill_string}#{address_string}" 
   end
