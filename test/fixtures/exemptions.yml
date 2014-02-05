@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  bill: 
+  percentage: false
+  subtract: false
+  amount: 1
+  expire: false
+  expiration_date: 2014-02-05 04:37:32
+
+two:
+  user: 
+  bill: 
+  percentage: false
+  subtract: false
+  amount: 1
+  expire: false
+  expiration_date: 2014-02-05 04:37:32
