@@ -31,14 +31,14 @@
     <%= f.label :due_date %><br />
     <%= f.text_field :due_date %>
   </div>
-  <!-- Need time and input added here and need exemption input functionality -->
+  <!-- Decide how to do time input -->
   <div class="field">
-    <%= f.label :exemptions %><br />
-    <%= f.text_field :exemptions %>
+    <%= f.label :comment %><br />
+    <%= f.text_field :comment %>
   </div>
   <div class="field" id="selected_entity_users">
     <% if @bill.entity %>
-      <p>
+      <!-- Forgot this needs to be the users selector.  Need to roll in the exemptions addition now as well -->
     <% end %>
   </div>
   <div class="actions">

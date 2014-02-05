@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918052244) do
+ActiveRecord::Schema.define(:version => 20140205092749) do
 
   create_table "bills", :force => true do |t|
     t.integer  "user_id"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20130918052244) do
     t.string   "recur_period"
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
-    t.string   "exemptions"
+    t.string   "comment"
     t.datetime "due_date"
   end
 
