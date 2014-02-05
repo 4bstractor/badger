@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   after_create :create_personal_entity
 
-  def total_value
+  def total_bills_value
     entities.collect(&:total_value).sum.signif(2)
   end
 

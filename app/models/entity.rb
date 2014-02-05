@@ -5,8 +5,8 @@ class Entity < ActiveRecord::Base
 
   has_many :bills
 
-  def bill_string
-    " : #{bills.count} Bill#{"s" unless bills.count == 1}"
+  def bills_summary
+    " : #{bills.count} " + 'Bill'.pluralize(bills.count)
   end
   
   # Currency methods
