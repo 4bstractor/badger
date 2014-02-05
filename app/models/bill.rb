@@ -4,6 +4,9 @@ class Bill < ActiveRecord::Base
 
   has_and_belongs_to_many :users
 
+  validates_presence_of :name, :recur_period, :due_date, :entity_id
+  validates_numericality_of :amount, :greater_than => 0.49, :less_than => 10000.00
+
   RECUR_OPTIONS = ["annually", "quarterly", "tri-monthly", "bi-monthly", "monthly", "tri-weekly", "bi-weekly", "weekly", "one-time"]
 
   def info_string
