@@ -1,8 +1,11 @@
 class Bill < ActiveRecord::Base
-  # attr_accessible :title, :body
-  belongs_to :entity
+  attr_accessible :name, :amount, :recur_period, :due_date, :comment
 
+  belongs_to :entity
+  has_many :exemptions, :dependent => :destroy
   has_and_belongs_to_many :users
+
+  accepts_nested_attributes_for :exemptions, :allow_destroy => true, :reject_if => lambda { |a| a[:user_id].blank? }
 
   validates_presence_of :name, :recur_period, :due_date, :entity_id
   validates_numericality_of :amount, :greater_than => 0.49, :less_than => 10000.00

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :password, :on => :create
 
+  has_many :exemptions
   has_and_belongs_to_many :entities
   has_and_belongs_to_many :bills
 
