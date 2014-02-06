@@ -1,5 +1,5 @@
 class Bill < ActiveRecord::Base
-  attr_accessible :name, :amount, :recur_period, :due_date, :comment
+  attr_accessible :name, :amount, :recur_period, :due_date, :comment, :entity_id, :exemptions_attributes
 
   belongs_to :entity
   has_many :exemptions, :dependent => :destroy
@@ -7,7 +7,7 @@ class Bill < ActiveRecord::Base
 
   accepts_nested_attributes_for :exemptions, :allow_destroy => true, :reject_if => lambda { |a| a[:user_id].blank? }
 
-  validates_presence_of :name, :recur_period, :due_date, :entity_id
+  validates_presence_of :amount, :name, :recur_period, :due_date, :entity_id
   validates_numericality_of :amount, :greater_than => 0.49, :less_than => 10000.00
 
   RECUR_OPTIONS = ["annually", "quarterly", "tri-monthly", "bi-monthly", "monthly", "tri-weekly", "bi-weekly", "weekly", "one-time"]

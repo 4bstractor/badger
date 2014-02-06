@@ -3,7 +3,7 @@
   <div class="field">
     <%= f.label :user %><br />
     <!-- Dangerous, need to use js to populate this select instead of a find -->
-    <%= f.select :user_id, Entity.find(params[:entity_id]).users.collect{|x| [x.username, x.id]}, {:include_blank => false} %>
+    <%= f.select :user_id, (@bill.entity || Entity.find(params[:entity_id])).users.collect{|x| [x.username, x.id]}, {:include_blank => false} %>
   </div>
   <div class="field">
     <%= f.label :percentage %><br />
@@ -11,7 +11,7 @@
   </div>
   <div class="field">
     <%= f.label :subtract %><br />
-    <%= f.select :subtract, [["+", 'f'], ["-", 't']], {:include_blank => false} %>
+    <%= f.select :subtract, [["More", 'f'], ["Less", 't']], {:include_blank => false} %>
   </div>
   <div class="field">
     <%= f.label :amount %><br />
