@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :entity %><br />
-    <%= f.select :entity_id, current_user.entities.uniq.collect{|x| [x.name, x.id]}, {:include_blank => false, :selected => params[:entity_id]} %>
+    <%= f.select :entity_id, current_user.entities.collect{|x| [x.name, x.id]}, {:include_blank => false, :selected => params[:entity_id]} %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
@@ -42,7 +42,11 @@
       <!--  For edit only, not sure this is needed -->
     <% end %>
   </div>
-  <!-- Need to add exemptions input here -->
+  <!-- Need to style exemptions input -->
+  <%= f.fields_for :exemptions do |builder| %>
+    <%= render "exemption_fields", :f => builder %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Exemption", f, :exemptions %></p>
   <div class="actions">
     <%= f.submit %>
   </div>
