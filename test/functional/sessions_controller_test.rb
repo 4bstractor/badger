@@ -7,7 +7,7 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    post :create, email: User.first.email, password: "password"
+    post :create, identifier: User.first.email, password: "password"
 
     assert_equal User.first.id, session[:user_id], "Check the user was signed in"
     assert_equal "Logged In!", flash[:notice], "Check for login notice"

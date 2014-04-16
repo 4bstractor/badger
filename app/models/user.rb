@@ -19,6 +19,11 @@ class User < ActiveRecord::Base
   def bills_overview
     "You have #{bills.count} #{'bill'.pluralize(bills.count)} belonging to #{entities.count} #{'entity'.pluralize(entities.count)}"
   end
+  
+  # Scope to find a user by either identifier
+  def self.find_by_identifier(identifier)
+    where("username = ? OR email = ?", identifier, identifier).first
+  end
 
   private
 
