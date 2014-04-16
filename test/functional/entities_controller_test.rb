@@ -22,7 +22,7 @@ class EntitiesControllerTest < ActionController::TestCase
       post :create, entity: @entity.attributes
     end
 
-    assert_redirected_to entity_path(assigns(:entity))
+    assert_redirected_to entities_path
   end
 
   test "should show entity" do
@@ -37,7 +37,7 @@ class EntitiesControllerTest < ActionController::TestCase
 
   test "should update entity" do
     put :update, id: @entity, entity: @entity.attributes
-    assert_redirected_to entity_path(assigns(:entity))
+    assert_redirected_to entities_path
   end
 
   test "should destroy entity" do

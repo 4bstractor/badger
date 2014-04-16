@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   after_create :create_personal_entity
 
   def total_bills_value
-    entities.collect(&:total_value).sum.signif(2)
+    BigDecimal(entities.collect(&:total_value).sum).signif(2)
   end
 
   def bills_overview
