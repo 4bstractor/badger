@@ -8,9 +8,10 @@ class EntitiesControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:entities)
+    assert_redirected_to new_entity_path
   end
+
+  #TODO: Need more test helpers before the other side of the index action can be tester 
 
   test "should get new" do
     get :new

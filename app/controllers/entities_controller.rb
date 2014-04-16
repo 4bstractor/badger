@@ -1,16 +1,19 @@
 class EntitiesController < ApplicationController
   def index
-    @entities = current_user.entities.uniq
+    if current_user.entities.count > 0
+      @entities = current_user.entities.uniq
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @entities }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @entities }
+      end
+    else
+      redirect_to new_entity_path, :notice => "It looks like you don't have an entity yet! Take a second to create one"
     end
   end
 
   def show
     @entity = Entity.find(params[:id])
-    current_user.entities.push(@entity)
 
     respond_to do |format|
       format.html # show.html.erb

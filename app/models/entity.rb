@@ -9,6 +9,10 @@ class Entity < ActiveRecord::Base
     " : #{bills.count} " + 'Bill'.pluralize(bills.count)
   end
 
+  def members_summary
+    " : #{users.count} " + 'Member'.pluralize(users.count)
+  end
+
   def formatted_address
     address ? "@#{address}" : "No Address"
   end
