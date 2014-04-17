@@ -20,6 +20,6 @@ class Entity < ActiveRecord::Base
   # Currency methods
   def total_value
     # zero prevents upstream errors resulting from integer return
-    (bills.collect(&:adjusted_amount) + [0.0]).sum.signif(2)
+    (bills.collect(&:adjusted_amount) + [BigDecimal.new(0)]).sum.signif(2)
   end
 end

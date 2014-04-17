@@ -12,5 +12,5 @@
 
 <!-- Make this box stand out somewhat -->
 <div id="entity_box">
-  <p>Grand Total: <%= "%.2f" % current_user.total_bills_value %><%= link_to ' + Add A New Entity', new_entity_path %></p>
+  <p>Grand Total: <%= current_user.total_bills_value.signif(2) %><%= link_to ' + Add A New Entity', new_entity_path %></p>
 </div>

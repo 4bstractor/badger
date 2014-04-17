@@ -9,7 +9,7 @@ class Exemption < ActiveRecord::Base
   validates_numericality_of :amount, :greater_than_or_equal_to => 0.00, :less_than => 10000.00
 
   def summary
-    "#{user.username} pays #{"%.2f" % amount}#{percentage ? '%' : '$'} #{subtract ? 'less' : 'more'} #{"on #{long_ordinal_date}" if expire}"
+    "#{user.username} pays #{amount.signif(2)}#{percentage ? '%' : '$'} #{subtract ? 'less' : 'more'} #{"on #{long_ordinal_date}" if expire}"
   end
 
   def long_ordinal_date

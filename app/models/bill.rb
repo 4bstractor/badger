@@ -9,12 +9,12 @@ class Bill < ActiveRecord::Base
 
   validates_presence_of :amount, :name, :recur_period, :entity_id
   validates_presence_of :due_date, :unless => Proc.new { |a| a.recur_period == "one-time" }
-  validates_numericality_of :amount, :greater_than => 0.49, :less_than => 10000.00
+  validates_numericality_of :amount, :greater_than => 0.01, :less_than => 99999.99
 
   RECUR_OPTIONS = ["annually", "quarterly", "tri-monthly", "bi-monthly", "monthly", "tri-weekly", "bi-weekly", "weekly", "one-time"]
 
   def info_string
-    "#{"%.2f" % adjusted_amount} (#{"%.2f" % amount}) #{recur_period} #{"on #{due_date_to_long_ordinal}" if due_date}"
+    "#{adjusted_amount.signif(2)} (#{amount.signif(2)}) #{recur_period} #{"on #{due_date_to_long_ordinal}" if due_date}"
   end
 
   def due_date_to_long_ordinal
@@ -22,6 +22,6 @@ class Bill < ActiveRecord::Base
   end
 
   def adjusted_amount
-    (amount.to_f / users.count)
+    amount / users.count.to_d
   end
 end
