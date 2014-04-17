@@ -22,6 +22,6 @@ class Bill < ActiveRecord::Base
   end
 
   def adjusted_amount
-    amount / users.count.to_d
+    amount.quo(BigDecimal.new(users.count))
   end
 end
