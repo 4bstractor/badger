@@ -12,5 +12,6 @@ class UserTest < ActiveSupport::TestCase
     assert user.save
     assert_equal user.email, User.first.email
     assert_equal user.username, User.first.username
+    assert_equal user.total_bills_value, 0.0
   end
 end

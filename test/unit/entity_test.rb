@@ -12,5 +12,6 @@ class EntityTest < ActiveSupport::TestCase
     assert entity.save
     assert_equal entity.name, "TestEntity"
     assert_equal entity.address, "123 Test St."
+    assert_equal entity.total_value, 0.0
   end
 end

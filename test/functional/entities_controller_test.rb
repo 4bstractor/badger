@@ -4,14 +4,14 @@ class EntitiesControllerTest < ActionController::TestCase
   setup do
     session[:user_id] = User.first.id
     @entity = entities(:one)
+    User.first.entities.push(@entity)
   end
 
   test "should get index" do
     get :index
-    assert_redirected_to new_entity_path
+    assert_response :success
+    assert_not_nil assigns(:entities)
   end
-
-  #TODO: Need more test helpers before the other side of the index action can be tester 
 
   test "should get new" do
     get :new
