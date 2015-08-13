@@ -1,5 +1,5 @@
 class Bill < ActiveRecord::Base
-  attr_accessible :name, :amount, :recur_period, :due_date, :comment, :entity_id, :exemptions_attributes
+  attr_accessible :name, :amount, :recur_period, :due_date, :comment, :entity_id, :exemptions_attributes, :users
 
   belongs_to :entity
   has_many :exemptions, :dependent => :destroy
